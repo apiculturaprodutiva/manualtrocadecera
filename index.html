@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual Prático: Troca da Cera em Colmeias | Puro Mel Apicultura</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            offwhite: '#FAFAF9',
+            ambermel: '#D97706',
+            ctagreen: '#16A34A',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-stone-800 font-sans antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- 1. TOPO + HEADLINE + SUB-HEADLINE + VSL -->
+  <header class="bg-offwhite border-b border-stone-200 pt-10 pb-14 sm:pt-14 sm:pb-20 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+
+      <!-- Selo Discreto no Topo -->
+      <div class="inline-flex items-center gap-2 bg-amber-100/80 text-amber-800 border border-amber-200 rounded-full px-4 py-1 text-xs sm:text-sm font-semibold mb-5">
+        <i class="fa-solid fa-jar text-ambermel"></i>
+        <span>Puro Mel • Apicultura Prática</span>
+      </div>
+
+      <!-- Headline Principal Direta -->
+      <h1 class="text-2xl sm:text-4xl md:text-[38px] font-extrabold text-stone-900 leading-tight tracking-tight mb-4">
+        Descubra o Passo a Passo Exato Para Renovar a Cera das Suas Colmeias na Pré-Safra, Eliminar Pragas e Aumentar Sua Produção de Mel
+      </h1>
+
+      <!-- Sub-headline Explicativa -->
+      <p class="text-stone-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+        Aprenda a técnica segura de substituição de favos (<strong class="text-stone-900">sem perder crias</strong>) e a fórmula do xarope energético para puxada de cera em <strong class="text-ambermel">15 a 20 dias</strong>.
+      </p>
+
+      <!-- Player de VSL 16:9 Limpo -->
+      <div class="bg-white p-2 sm:p-3 rounded-2xl shadow-md border border-stone-200 mb-4">
+        <div id="vsl-stage" class="relative aspect-video bg-stone-900 rounded-xl overflow-hidden">
+          
+          <!-- Capa Inicial da VSL -->
+          <div id="vsl-cover" onclick="playVslDemo()" class="absolute inset-0 flex flex-col items-center justify-center p-6 cursor-pointer group bg-stone-900/90">
+            <!-- Fundo vetorial hexagonal apícola caso a foto externa não carregue -->
+            <svg class="absolute inset-0 w-full h-full opacity-25" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+              <defs>
+                <pattern id="vsl-honeycomb-bg" width="28" height="48.5" patternUnits="userSpaceOnUse">
+                  <polygon points="14,0 28,8.08 28,24.25 14,32.33 0,24.25 0,8.08" fill="#1C1917" stroke="#D97706" stroke-width="1.5" />
+                  <polygon points="28,24.25 42,32.33 42,48.5 28,56.58 14,48.5 14,32.33" fill="#292524" stroke="#D97706" stroke-width="1.5" />
+                  <polygon points="0,24.25 14,32.33 14,48.5 0,56.58 -14,48.5 -14,32.33" fill="#292524" stroke="#D97706" stroke-width="1.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#vsl-honeycomb-bg)" />
+            </svg>
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1000&q=80" 
+                 onerror="this.style.display='none'" 
+                 alt="Manejo de colmeias e favos de mel" 
+                 class="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:scale-105 transition-transform duration-500" />
+            
+            <div class="relative z-10 flex flex-col items-center">
+              <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-ambermel group-hover:bg-amber-500 text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-105">
+                <i class="fa-solid fa-play text-2xl sm:text-3xl ml-1"></i>
+              </div>
+              <span class="mt-3.5 text-white font-bold text-sm sm:text-base">
+                Assista ao vídeo explicativo (3 min)
+              </span>
+              <span class="text-xs text-stone-300 mt-1">
+                Clique para iniciar a apresentação
+              </span>
+            </div>
+          </div>
+
+          <!-- Apresentação em Etapas (Enquanto não houver link YouTube/Vimeo inserido) -->
+          <div id="vsl-slides" class="hidden absolute inset-0 flex flex-col justify-between bg-stone-900 text-white p-6 sm:p-8 text-left">
+            <div class="flex items-center justify-between border-b border-stone-800 pb-3">
+              <span class="text-xs font-semibold text-amber-400">APRESENTAÇÃO • PURO MEL</span>
+              <button type="button" onclick="openVideoModal()" class="text-xs bg-stone-800 hover:bg-stone-700 text-stone-200 px-3 py-1 rounded-lg transition">
+                <i class="fa-brands fa-youtube text-red-500 mr-1"></i> Inserir link YouTube/Vimeo
+              </button>
+            </div>
+
+            <div class="my-auto text-center max-w-xl mx-auto space-y-2.5">
+              <span id="slide-step" class="inline-block text-xs font-bold text-amber-400 uppercase tracking-wider">Tópico 1 de 4</span>
+              <h3 id="slide-heading" class="text-lg sm:text-2xl font-bold leading-snug">
+                Por que renovar a cera todos os anos?
+              </h3>
+              <p id="slide-desc" class="text-sm sm:text-base text-stone-300 leading-relaxed">
+                Com o tempo, os favos acumulam casulos, própolis e patógenos. Isso aperta os alvéolos e gera abelhas menores e menos produtivas.
+              </p>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-stone-800 text-xs">
+              <button type="button" onclick="nextSlide()" class="text-amber-400 hover:underline font-semibold">
+                Próximo tópico <i class="fa-solid fa-arrow-right ml-1"></i>
+              </button>
+              <span id="slide-count" class="text-stone-400">1 / 4</span>
+            </div>
+          </div>
+
+          <!-- Container para Embed Real do YouTube / Vimeo -->
+          <div id="vsl-iframe-box" class="hidden absolute inset-0 bg-black"></div>
+        </div>
+
+        <!-- Ações discretas abaixo do vídeo -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-2.5 px-1 text-xs text-stone-500">
+          <button type="button" onclick="toggleScript()" class="hover:text-ambermel font-medium underline underline-offset-2">
+            Prefere ler o resumo do vídeo?
+          </button>
+          <button type="button" onclick="openVideoModal()" class="hover:text-stone-800 font-medium">
+            <i class="fa-solid fa-link mr-1"></i> Configurar link do vídeo
+          </button>
+        </div>
+      </div>
+
+      <!-- Resumo do Roteiro (Oculto por padrão, expande ao clicar) -->
+      <div id="vsl-script-box" class="hidden max-w-2xl mx-auto mb-6 bg-white border border-stone-200 rounded-xl p-5 text-left text-sm text-stone-600 space-y-2.5 shadow-sm">
+        <div class="flex items-center justify-between font-bold text-stone-900 border-b border-stone-100 pb-2">
+          <span>Resumo da Apresentação</span>
+          <button type="button" onclick="toggleScript()" class="text-stone-400 hover:text-stone-700"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <p><strong>1. O Problema:</strong> Favos velhos acumulam resíduos e reduzem o tamanho interno das células, enfraquecendo o enxame e favorecendo pragas.</p>
+        <p><strong>2. O Momento Certo:</strong> A renovação anual deve ser feita na <strong>Pré-Safra (60 a 90 dias antes da florada)</strong> — nunca durante a safra.</p>
+        <p><strong>3. O Passo a Passo:</strong> No manual você aprende a posição exata dos quadros (para enxames pequenos e adultos) e a receita do xarope energético para puxada rápida sem perder crias.</p>
+      </div>
+
+      <!-- Botão CTA Principal -->
+      <div class="max-w-md mx-auto mt-6">
+        <a href="#oferta" class="block w-full bg-ctagreen hover:bg-green-700 text-white font-bold text-base sm:text-lg py-4 px-6 rounded-xl shadow-sm transition">
+          QUERO O MANUAL + BÔNUS AGORA
+        </a>
+        <p class="text-xs text-stone-500 mt-2.5">
+          <i class="fa-solid fa-lock text-stone-400 mr-1"></i> Acesso imediato • Garantia incondicional de 7 dias
+        </p>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 2. OS 4 SINAIS DE ALERTA NA COLMEIA + JANELA PRÉ-SAFRA -->
+  <section class="py-14 sm:py-16 px-4 bg-white border-b border-stone-200">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 mb-3">
+        Os 4 Sinais de Alerta na Colmeia
+      </h2>
+      <p class="text-stone-600 text-base leading-relaxed mb-6">
+        Com o tempo, os favos acumulam própolis, pólen, restos de casulos e patógenos. Se você nota algum destes 4 sinais no seu apiário, é hora de renovar a cera:
+      </p>
+
+      <!-- Lista Direta dos 4 Sinais -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
+        <div class="bg-offwhite border border-stone-200 rounded-xl p-4 flex items-start gap-3">
+          <i class="fa-solid fa-circle-exclamation text-ambermel mt-1"></i>
+          <div>
+            <h3 class="font-bold text-stone-900 text-sm sm:text-base">Favos muito escuros</h3>
+            <p class="text-xs sm:text-sm text-stone-600 mt-0.5">Células apertadas pelo acúmulo de casulos geram abelhas menores e menos produtivas.</p>
+          </div>
+        </div>
+
+        <div class="bg-offwhite border border-stone-200 rounded-xl p-4 flex items-start gap-3">
+          <i class="fa-solid fa-circle-exclamation text-ambermel mt-1"></i>
+          <div>
+            <h3 class="font-bold text-stone-900 text-sm sm:text-base">Cheiro desagradável</h3>
+            <p class="text-xs sm:text-sm text-stone-600 mt-0.5">Indica fermentação de resíduos antigos e contaminação interna nos favos.</p>
+          </div>
+        </div>
+
+        <div class="bg-offwhite border border-stone-200 rounded-xl p-4 flex items-start gap-3">
+          <i class="fa-solid fa-circle-exclamation text-ambermel mt-1"></i>
+          <div>
+            <h3 class="font-bold text-stone-900 text-sm sm:text-base">Presença de pragas</h3>
+            <p class="text-xs sm:text-sm text-stone-600 mt-0.5">Cera velha facilita o ataque de traças e o surgimento de doenças nas crias.</p>
+          </div>
+        </div>
+
+        <div class="bg-offwhite border border-stone-200 rounded-xl p-4 flex items-start gap-3">
+          <i class="fa-solid fa-circle-exclamation text-ambermel mt-1"></i>
+          <div>
+            <h3 class="font-bold text-stone-900 text-sm sm:text-base">Baixa produtividade</h3>
+            <p class="text-xs sm:text-sm text-stone-600 mt-0.5">Colmeias que demoram a evoluir e entregam menos mel mesmo em boa florada.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destaque Janela Ideal da Pré-Safra -->
+      <div class="bg-amber-50 border-l-4 border-ambermel p-5 rounded-r-xl text-stone-800">
+        <div class="flex items-center gap-2 font-bold text-amber-900 mb-1">
+          <i class="fa-regular fa-calendar-check text-ambermel"></i>
+          <span>A Janela Ideal: Período de Pré-Safra (60 a 90 dias antes da florada)</span>
+        </div>
+        <p class="text-sm sm:text-base text-stone-700 leading-relaxed">
+          A cera deve ser trocada todos os anos entre <strong>60 e 90 dias antes da safra de mel</strong>. Nunca efetue a troca durante a safra, pois isso atrasa o desenvolvimento da colônia e compromete a colheita.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. OS 7 PONTOS PRÁTICOS DO MANUAL -->
+  <section class="py-14 sm:py-16 px-4 bg-offwhite border-b border-stone-200">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 mb-3">
+        O Que Você Vai Aprender no Manual
+      </h2>
+      <p class="text-stone-600 text-base mb-8">
+        Um guia direto ao ponto, dividido em 7 etapas práticas para aplicar no campo:
+      </p>
+
+      <ol class="space-y-3.5">
+        <li class="bg-white border border-stone-200 rounded-xl p-4 sm:p-5 flex items-start gap-3.5">
+          <span class="w-7 h-7 rounded-full bg-amber-100 text-ambermel font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">1</span>
+          <div>
+            <h3 class="font-bold text-stone-900">Diagnóstico e Momento Certo da Troca</h3>
+            <p class="text-sm text-stone-600 mt-0.5">Como avaliar o estado dos favos e planejar a substituição anual na janela exata de 60 a 90 dias da Pré-Safra.</p>
+          </div>
+        </li>
+
+        <li class="bg-white border border-stone-200 rounded-xl p-4 sm:p-5 flex items-start gap-3.5">
+          <span class="w-7 h-7 rounded-full bg-amber-100 text-ambermel font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">2</span>
+          <div>
+            <h3 class="font-bold text-stone-900">Materiais e Equipamentos Necessários</h3>
+            <p class="text-sm text-stone-600 mt-0.5">Checklist prático para trabalhar com segurança e agilidade: quadros novos, cera alveolada, formão apícola, fumigador e EPIs.</p>
+          </div>
+        </li>
+
+        <li class="bg-white border border-stone-200 rounded-xl p-4 sm:p-5 flex items-start gap-3.5">
+          <span class="w-7 h-7 rounded-full bg-amber-100 text-ambermel font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">3</span>
+          <div>
+            <h3 class="font-bold text-stone-900">Diagrama para Enxame Pequeno ou Médio</h3>
+            <p class="text-sm text-stone-600 mt-0.5">Onde posicionar os 2 favos novos nas extremidades da caixa e como movê-los para o centro após 15 a 20 dias.</p>
+          </div>
+        </li>
+
+        <li class="bg-white border border-stone-200 rounded-xl p-4 sm:p-5 flex items-start gap-3.5">
+          <span class="w-7 h-7 rounded-full bg-amber-100 text-ambermel font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">4</span>
+          <div>
+            <h3 class="font-bold text-stone-900">Diagrama para Enxame Adulto / Forte</h3>
+            <p class="text-sm text-stone-600 mt-0.5">Como trocar 3 lâminas de imediato (centro e extremidades) e conduzir os favos velhos com cria para as bordas até o nascimento total.</p>
+          </div>
+        </li>
+
+        <li class="bg-white border border-stone-200 rounded-xl p-4 sm:p-5 flex items-start gap-3.5">
+          <span class="w-7 h-7 rounded-full bg-amber-100 text-ambermel font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">5</span>
+          <div>
+            <h3 class="font-bold text-stone-900">Fórmula do Xarope de Puxada de Cera</h3>
+            <p class="text-sm text-stone-600 mt-0.5">Medidas exatas por litro: <strong>660g de açúcar + 340ml de água</strong>, <strong>5g de sal a cada 10L</strong> (para ativar a enzima invertase) e <strong>6ml/L de Glicopan Energy</strong>.</p>
+          </div>
+        </li>
+
+        <li class="bg-white border border-stone-200 rounded-xl p-4 sm:p-5 flex items-start gap-3.5">
+          <span class="w-7 h-7 rounded-full bg-amber-100 text-ambermel font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">6</span>
+          <div>
+            <h3 class="font-bold text-stone-900">Cronograma Semanal de Alimentação</h3>
+            <p class="text-sm text-stone-600 mt-0.5">Como aplicar <strong>750ml/semana</strong> nos mesmos dias para enxames fortes e como ajustar a dose para núcleos/enxames menores até abrir a florada.</p>
+          </div>
+        </li>
+
+        <li class="bg-white border border-stone-200 rounded-xl p-4 sm:p-5 flex items-start gap-3.5">
+          <span class="w-7 h-7 rounded-full bg-amber-100 text-ambermel font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">7</span>
+          <div>
+            <h3 class="font-bold text-stone-900">Organograma da Apicultura Produtiva</h3>
+            <p class="text-sm text-stone-600 mt-0.5">Mapa visual completo separando todas as ações da <strong>Entressafra</strong>, <strong>Pré-Safra</strong> (incluindo troca de rainha a cada 2 anos) e <strong>Safra</strong>.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4. OS 2 BÔNUS INCLUSOS -->
+  <section class="py-14 sm:py-16 px-4 bg-white border-b border-stone-200">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 mb-3">
+        2 Bônus Exclusivos Inclusos Hoje
+      </h2>
+      <p class="text-stone-600 text-base mb-6">
+        Além do e-book completo em PDF, você recebe acesso imediato aos links internos de apoio:
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-offwhite border border-stone-200 rounded-2xl p-5">
+          <span class="inline-block bg-amber-100 text-ambermel text-xs font-bold uppercase px-2.5 py-0.5 rounded-full mb-2">
+            Bônus 1
+          </span>
+          <h3 class="font-bold text-stone-900 text-base mb-1.5">Vídeos Práticos de Campo</h3>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            Assista na prática aos vídeos <em>"Troca de cera na prática, manejo pré-safra"</em> e <em>"Aprendendo sobre a troca de cera e seus manejos"</em> antes de ir para o apiário.
+          </p>
+        </div>
+
+        <div class="bg-offwhite border border-stone-200 rounded-2xl p-5">
+          <span class="inline-block bg-green-100 text-ctagreen text-xs font-bold uppercase px-2.5 py-0.5 rounded-full mb-2">
+            Bônus 2
+          </span>
+          <h3 class="font-bold text-stone-900 text-base mb-1.5">Grupo no WhatsApp</h3>
+          <p class="text-sm text-stone-600 leading-relaxed">
+            Acesso direto ao Grupo do Whatsapp <strong>"Apicultura Produtiva (Puro Mel)"</strong> para trocar experiências e tirar dúvidas com outros produtores.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CARD DE OFERTA EM 2 COLUNAS + CAPA ORIGINAL + GARANTIA DE 7 DIAS -->
+  <section id="oferta" class="py-14 sm:py-20 px-4 bg-offwhite border-b border-stone-200">
+    <div class="max-w-3xl mx-auto">
+      
+      <div class="bg-white border-2 border-ambermel rounded-3xl p-6 sm:p-10 shadow-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-8 items-center pb-8 border-b border-stone-200">
+          
+          <!-- Coluna Esquerda: Capa Original Alinhada (Proporção 2:3) -->
+          <div class="sm:col-span-5 flex flex-col items-center">
+            <div id="ebook-cover-frame" class="relative w-52 sm:w-60 aspect-[2/3] rounded-xl overflow-hidden shadow-lg border border-stone-200 bg-stone-900 select-none">
+              
+              <!-- Imagem carregada pelo usuário (oculta até que um arquivo local seja escolhido) -->
+              <img id="ebook-custom-img" src="" alt="Capa do E-book Manual Prático: Como Efetuar a Troca da Cera em Colmeias" class="hidden w-full h-full object-cover object-center block" />
+
+              <!-- Representação Visual Fiel da Capa Original (Proporção 2:3) -->
+              <div id="ebook-faithful-cover" class="w-full h-full flex flex-col relative overflow-hidden">
+                
+                <!-- Metade Superior: Favo de Mel Hexagonal Escuro -->
+                <div class="relative h-[58%] w-full bg-[#3A2312] overflow-hidden flex flex-col items-center justify-between pt-2.5 pb-1 px-2">
+                  <!-- Padrão Hexagonal SVG de Alta Fidelidade (Fallback e Textura Base) -->
+                  <svg class="absolute inset-0 w-full h-full opacity-95" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <defs>
+                      <pattern id="honeycomb-cover" width="24" height="41.56" patternUnits="userSpaceOnUse">
+                        <polygon points="12,0 24,6.92 24,20.78 12,27.71 0,20.78 0,6.92" fill="#1E1108" stroke="#8C5828" stroke-width="2.2" />
+                        <polygon points="24,20.78 36,27.71 36,41.56 24,48.49 12,41.56 12,27.71" fill="#26150A" stroke="#9C642E" stroke-width="2.2" />
+                        <polygon points="0,20.78 12,27.71 12,41.56 0,48.49 -12,41.56 -12,27.71" fill="#26150A" stroke="#9C642E" stroke-width="2.2" />
+                      </pattern>
+                      <radialGradient id="comb-vignette" cx="50%" cy="50%" r="65%">
+                        <stop offset="0%" stop-color="#D97706" stop-opacity="0.18" />
+                        <stop offset="100%" stop-color="#0C0603" stop-opacity="0.65" />
+                      </radialGradient>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#honeycomb-cover)" />
+                    <rect width="100%" height="100%" fill="url(#comb-vignette)" />
+                  </svg>
+
+                  <!-- Foto Real de Favo de Mel Escuro sobreposta -->
+                  <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=600&q=80"
+                       onerror="this.style.display='none'"
+                       alt="Células de favo de mel na colmeia"
+                       class="absolute inset-0 w-full h-full object-cover object-center opacity-75 mix-blend-luminosity brightness-75 contrast-125" />
+
+                  <!-- Barra superior de madeira clara do quadro -->
+                  <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-b from-[#FDE68A] to-[#D97706]/80 opacity-85"></div>
+
+                  <!-- Caixa Marrom Translúcida Arredondada no Topo -->
+                  <div class="relative z-10 w-[94%] bg-[#6B442A]/85 backdrop-blur-[1px] rounded-xl px-2 py-2 text-center shadow-sm border border-amber-200/15 mt-0.5">
+                    <div class="text-[#FBBF24] font-extrabold text-[15px] sm:text-[17px] leading-none tracking-tight drop-shadow">
+                      MANUAL PRÁTICO
+                    </div>
+                    <div class="text-[#FCD34D] font-extrabold text-[9.5px] sm:text-[10.5px] leading-tight mt-1 tracking-tight uppercase">
+                      COMO EFETUAR A TROCA<br>DA CERA EM COLMEIAS
+                    </div>
+                  </div>
+
+                  <!-- Faixa Branca Arredondada no Meio -->
+                  <div class="relative z-10 w-[94%] bg-white rounded-xl px-2 py-1.5 text-center shadow-md my-auto">
+                    <p class="text-[#DC2626] font-extrabold text-[8px] sm:text-[8.8px] leading-[1.2] tracking-tight uppercase">
+                      GUIA PASSO A PASSO PARA RENOVAÇÃO DOS FAVOS, SAÚDE DAS ABELHAS E AUMENTO DA PRODUTIVIDADE
+                    </p>
+                  </div>
+
+                  <!-- Palavra Grande em Branco "APICULTURA" atravessando o centro -->
+                  <div class="relative z-10 w-full text-center -mb-1">
+                    <span class="block text-white font-extrabold italic text-[24px] sm:text-[27px] leading-none tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                      APICULTURA
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Metade Inferior: Apicultor com Traje de Proteção inspecionando Quadro de Colmeia -->
+                <div class="relative h-[42%] w-full bg-[#2B2113] overflow-hidden">
+                  <!-- Ilustração Vetorial Apícola (Fallback caso a foto não carregue) -->
+                  <svg class="absolute inset-0 w-full h-full" viewBox="0 0 240 160" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="apiary-bg" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#3B2F1E" />
+                        <stop offset="100%" stop-color="#1C1917" />
+                      </linearGradient>
+                    </defs>
+                    <rect width="240" height="160" fill="url(#apiary-bg)" />
+                    <!-- Caixa de colmeia Langstroth estilizada -->
+                    <rect x="28" y="88" width="84" height="52" rx="3" fill="#D97706" opacity="0.45" stroke="#FBBF24" stroke-width="1.5" />
+                    <line x1="28" y1="106" x2="112" y2="106" stroke="#FBBF24" stroke-width="1" opacity="0.5" />
+                    <!-- Quadro apícola em inspeção -->
+                    <g transform="translate(125, 36) rotate(8)">
+                      <rect x="0" y="0" width="76" height="58" rx="2" fill="#92400E" stroke="#FDE68A" stroke-width="3" />
+                      <rect x="5" y="5" width="66" height="48" fill="#F59E0B" opacity="0.55" />
+                    </g>
+                    <!-- Abelhas estilizadas -->
+                    <circle cx="95" cy="45" r="2.2" fill="#FBBF24" />
+                    <circle cx="112" cy="30" r="2" fill="#FDE68A" />
+                    <circle cx="195" cy="28" r="2.2" fill="#FBBF24" />
+                  </svg>
+
+                  <!-- Foto Real de Apicultor com Traje Apícola manejando Quadro -->
+                  <img src="https://images.unsplash.com/photo-1568526381923-caf3fd520382?auto=format&fit=crop&w=600&q=80"
+                       onerror="this.style.display='none'"
+                       alt="Apicultor com traje apícola inspecionando quadro da colmeia"
+                       class="relative z-[1] w-full h-full object-cover object-center brightness-95 contrast-105" />
+                  
+                  <!-- Gradiente sutil para legibilidade do rodapé da capa -->
+                  <div class="absolute inset-0 z-[2] bg-gradient-to-t from-black/80 via-transparent to-black/25"></div>
+
+                  <!-- Palavra "E-book" na base central -->
+                  <div class="absolute bottom-1.5 inset-x-0 text-center z-10">
+                    <span class="text-white font-extrabold text-[12px] sm:text-[13px] tracking-wide drop-shadow-[0_1px_3px_rgba(0,0,0,0.95)]">
+                      E-book
+                    </span>
+                  </div>
+
+                  <!-- Pequeno Selo Hexagonal "Puro Mel" no canto inferior direito -->
+                  <div class="absolute bottom-1.5 right-1.5 z-10 w-7 h-7 flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow">
+                      <polygon points="50,3 93,27 93,73 50,97 7,73 7,27" fill="#FFFFFF" stroke="#D97706" stroke-width="6" />
+                      <circle cx="50" cy="40" r="10" fill="#F59E0B" />
+                      <text x="50" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="17" fill="#78350F">Puro Mel</text>
+                    </svg>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <span class="text-[11px] text-stone-400 mt-2.5 text-center">
+              E-book Digital (PDF) + Vídeos + Grupo VIP
+            </span>
+
+            <!-- Botão discreto para carregar o arquivo local "Manual troca de Cera.jpg" -->
+            <input type="file" id="cover-file-input" accept="image/*" class="hidden" onchange="loadLocalCover(event)" />
+            <button type="button" onclick="document.getElementById('cover-file-input').click()" class="mt-1.5 inline-flex items-center gap-1 text-[11px] text-stone-400 hover:text-ambermel underline underline-offset-2 transition">
+              <i class="fa-regular fa-image"></i>
+              <span>Trocar imagem da capa</span>
+            </button>
+          </div>
+
+          <!-- Coluna Direita: Lista de Benefícios, Preço e Botão -->
+          <div class="sm:col-span-7 space-y-5">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-ambermel">Oferta Especial de Pré-Safra</span>
+              <h2 class="text-2xl font-extrabold text-stone-900 mt-1">
+                Manual Prático: Troca da Cera em Colmeias
+              </h2>
+            </div>
+
+            <ul class="space-y-2.5 text-sm text-stone-700">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-ctagreen"></i>
+                <span>E-book ilustrado com diagramas de posição dos quadros</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-ctagreen"></i>
+                <span>Fórmula completa do xarope energético de puxada</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-ctagreen"></i>
+                <span>Organograma anual da Apicultura Produtiva</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-ctagreen"></i>
+                <span><strong>Bônus:</strong> Vídeos práticos + Grupo VIP no WhatsApp</span>
+              </li>
+            </ul>
+
+            <div class="bg-offwhite border border-stone-200 rounded-2xl p-4 text-center sm:text-left">
+              <span class="text-xs text-stone-500 block">De <span class="line-through">R$ 97,00</span> por apenas:</span>
+              <div class="flex items-baseline justify-center sm:justify-start gap-2 mt-0.5">
+                <span class="text-3xl sm:text-4xl font-extrabold text-stone-900">R$ 47,00</span>
+                <span class="text-xs sm:text-sm text-stone-600 font-medium">à vista (ou 4x R$ 12,79)</span>
+              </div>
+            </div>
+
+            <div>
+              <a id="buy-button" href="#checkout" onclick="handleBuy(event)" class="block w-full text-center bg-ctagreen hover:bg-green-700 text-white font-bold text-base sm:text-lg py-4 px-6 rounded-xl shadow-sm transition">
+                GARANTIR MEU E-BOOK AGORA
+              </a>
+              <p class="text-center text-xs text-stone-500 mt-2.5">
+                Pagamento 100% seguro via PIX ou Cartão • Envio imediato
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Selo de Garantia Incondicional de 7 Dias -->
+        <div class="pt-6 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+          <div class="w-14 h-14 rounded-full bg-amber-100 border border-amber-300 text-ambermel font-extrabold text-xs flex flex-col items-center justify-center shrink-0 leading-tight">
+            <span class="text-base">7</span>
+            <span>DIAS</span>
+          </div>
+          <div class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+            <strong class="text-stone-900 block mb-0.5">Garantia Incondicional de 7 Dias (Risco Zero)</strong>
+            Adquira o manual, leia todo o passo a passo e assista aos vídeos. Se em até 7 dias você sentir que o conteúdo não vai ajudar no manejo das suas colmeias, devolvemos 100% do seu investimento sem burocracia.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. FAQ MINIMALISTA COM 3 PERGUNTAS EM ACCORDION -->
+  <section class="py-14 sm:py-16 px-4 bg-white">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-stone-900 text-center mb-8">
+        Perguntas Frequentes
+      </h2>
+
+      <div class="space-y-3" id="faq-accordion">
+        <!-- Pergunta 1 -->
+        <div class="border border-stone-200 rounded-xl overflow-hidden">
+          <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-4 text-left font-semibold text-sm sm:text-base text-stone-900 hover:bg-offwhite transition">
+            <span>1. Serve para apicultores iniciantes?</span>
+            <i class="fa-solid fa-chevron-down text-stone-400 text-xs transition-transform"></i>
+          </button>
+          <div class="faq-body hidden px-4 pb-4 text-sm text-stone-600 border-t border-stone-100 pt-3">
+            Sim! O manual explica desde o básico até a execução no campo, com diagramas visuais que mostram exatamente onde colocar cada quadro novo e velho dentro da caixa.
+          </div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="border border-stone-200 rounded-xl overflow-hidden">
+          <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-4 text-left font-semibold text-sm sm:text-base text-stone-900 hover:bg-offwhite transition">
+            <span>2. Como recebo o e-book e os bônus?</span>
+            <i class="fa-solid fa-chevron-down text-stone-400 text-xs transition-transform"></i>
+          </button>
+          <div class="faq-body hidden px-4 pb-4 text-sm text-stone-600 border-t border-stone-100 pt-3">
+            Assim que o pagamento for confirmado, você recebe o link no seu e-mail para baixar o E-book em PDF (para ler no celular, tablet ou computador) junto com os links dos vídeos e do grupo no WhatsApp.
+          </div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="border border-stone-200 rounded-xl overflow-hidden">
+          <button type="button" onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-4 text-left font-semibold text-sm sm:text-base text-stone-900 hover:bg-offwhite transition">
+            <span>3. Serve para abelhas sem ferrão (meliponicultura)?</span>
+            <i class="fa-solid fa-chevron-down text-stone-400 text-xs transition-transform"></i>
+          </button>
+          <div class="faq-body hidden px-4 pb-4 text-sm text-stone-600 border-t border-stone-100 pt-3">
+            Não. Este manual é exclusivo para o manejo de abelhas com ferrão (<em>Apis mellifera</em>) em colmeias padrão com quadros móveis e lâminas de cera alveolada.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé Discreto -->
+  <footer class="bg-offwhite border-t border-stone-200 py-8 px-4 text-center text-xs text-stone-500">
+    <div class="max-w-3xl mx-auto space-y-2">
+      <p class="font-bold text-stone-700">Puro Mel • Apicultura Produtiva</p>
+      <p>Os resultados podem variar de acordo com o pasto apícola da região e a aplicação correta das técnicas de manejo.</p>
+      <p>&copy; 2026 Puro Mel. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Simples para Inserir Link da VSL (YouTube/Vimeo) -->
+  <div id="video-modal" class="hidden fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-stone-200 relative">
+      <button type="button" onclick="closeModal('video-modal')" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <h3 class="font-bold text-lg text-stone-900 mb-1">Inserir Link do Vídeo (VSL)</h3>
+      <p class="text-xs text-stone-600 mb-4">Cole abaixo o link do seu vídeo no YouTube ou Vimeo:</p>
+      <input type="url" id="vsl-url-input" placeholder="https://www.youtube.com/watch?v=..." class="w-full border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm mb-3 focus:outline-none focus:border-ambermel" />
+      <button type="button" onclick="applyVslUrl()" class="w-full bg-ambermel hover:bg-amber-700 text-white font-bold py-2.5 rounded-xl text-sm transition">
+        Carregar Vídeo na Página
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal Simples para Configurar Link do Checkout -->
+  <div id="checkout-modal" class="hidden fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-stone-200 relative">
+      <button type="button" onclick="closeModal('checkout-modal')" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <h3 class="font-bold text-lg text-stone-900 mb-1">Configurar Link de Pagamento</h3>
+      <p class="text-xs text-stone-600 mb-4">Cole o link do seu checkout (Hotmart, Kiwify, Eduzz ou Mercado Pago):</p>
+      <input type="url" id="checkout-url-input" placeholder="https://pay.kiwify.com.br/..." class="w-full border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm mb-3 focus:outline-none focus:border-ctagreen" />
+      <button type="button" onclick="applyCheckoutUrl()" class="w-full bg-ctagreen hover:bg-green-700 text-white font-bold py-2.5 rounded-xl text-sm transition">
+        Salvar Link de Venda
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts Essenciais -->
+  <script>
+    const slides = [
+      {
+        step: "Tópico 1 de 4",
+        heading: "Por que renovar a cera todos os anos?",
+        desc: "Com o tempo, os favos acumulam casulos, própolis e patógenos. Isso aperta os alvéolos e gera abelhas menores e menos produtivas."
+      },
+      {
+        step: "Tópico 2 de 4",
+        heading: "Quando fazer a troca da cera?",
+        desc: "Na Pré-Safra (60 a 90 dias antes da florada). Nunca efetue a troca durante a safra, pois isso atrasa o enxame e derruba a produção."
+      },
+      {
+        step: "Tópico 3 de 4",
+        heading: "Posicionamento seguro sem perder crias",
+        desc: "O manual traz os diagramas exatos de posição dos quadros novos e velhos tanto para enxames pequenos/médios quanto para enxames adultos."
+      },
+      {
+        step: "Tópico 4 de 4",
+        heading: "Xarope energético de puxada rápida",
+        desc: "Receita exata: 660g de açúcar + 340ml de água, sal para ativar a enzima invertase e Glicopan Energy para puxada acelerada."
+      }
+    ];
+
+    let slideIndex = 0;
+
+    function playVslDemo() {
+      document.getElementById('vsl-cover').classList.add('hidden');
+      document.getElementById('vsl-slides').classList.remove('hidden');
+    }
+
+    function nextSlide() {
+      slideIndex = (slideIndex + 1) % slides.length;
+      const s = slides[slideIndex];
+      document.getElementById('slide-step').textContent = s.step;
+      document.getElementById('slide-heading').textContent = s.heading;
+      document.getElementById('slide-desc').textContent = s.desc;
+      document.getElementById('slide-count').textContent = `${slideIndex + 1} / ${slides.length}`;
+    }
+
+    function toggleScript() {
+      document.getElementById('vsl-script-box').classList.toggle('hidden');
+    }
+
+    function toggleFaq(btn) {
+      const body = btn.nextElementSibling;
+      const icon = btn.querySelector('i');
+      const isHidden = body.classList.contains('hidden');
+
+      document.querySelectorAll('.faq-body').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#faq-accordion button i').forEach(ic => ic.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        body.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    let checkoutLink = "#checkout";
+
+    function handleBuy(e) {
+      if (checkoutLink === "#checkout") {
+        e.preventDefault();
+        document.getElementById('checkout-modal').classList.remove('hidden');
+      }
+    }
+
+    function applyCheckoutUrl() {
+      const val = document.getElementById('checkout-url-input').value.trim();
+      if (val) {
+        checkoutLink = val;
+        const btn = document.getElementById('buy-button');
+        btn.href = checkoutLink;
+        btn.target = "_blank";
+        closeModal('checkout-modal');
+      }
+    }
+
+    function openVideoModal() {
+      document.getElementById('video-modal').classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function applyVslUrl() {
+      const url = document.getElementById('vsl-url-input').value.trim();
+      let embedSrc = "";
+
+      if (url.includes("youtube.com/watch?v=")) {
+        const id = url.split("v=")[1].split("&")[0];
+        embedSrc = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      } else if (url.includes("youtu.be/")) {
+        const id = url.split("youtu.be/")[1].split("?")[0];
+        embedSrc = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      } else if (url.includes("vimeo.com/")) {
+        const id = url.split("vimeo.com/")[1].split("?")[0];
+        embedSrc = `https://player.vimeo.com/video/${id}?autoplay=1`;
+      }
+
+      if (embedSrc) {
+        document.getElementById('vsl-cover').classList.add('hidden');
+        document.getElementById('vsl-slides').classList.add('hidden');
+        const box = document.getElementById('vsl-iframe-box');
+        box.classList.remove('hidden');
+        box.innerHTML = `<iframe class="w-full h-full" src="${embedSrc}" title="VSL Troca de Cera" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+        closeModal('video-modal');
+      }
+    }
+
+    function loadLocalCover(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const customImg = document.getElementById('ebook-custom-img');
+        const faithfulCover = document.getElementById('ebook-faithful-cover');
+        customImg.src = e.target.result;
+        customImg.classList.remove('hidden');
+        faithfulCover.classList.add('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
